@@ -4,7 +4,7 @@ COPY package.json package-lock.json ./
 
 RUN npm i
 
-COPY src.js .
+COPY . .
 
 EXPOSE 3000
 

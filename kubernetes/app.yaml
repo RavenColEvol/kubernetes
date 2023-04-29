@@ -16,9 +16,25 @@ spec:
     spec:
       containers:
       - name: express-app
-        image: ravencolevol/express-app:1.1
+        image: ravencolevol/express-app:1.5
         ports:
         - containerPort: 3000
+        env:
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: MONGO_USERNAME
+        - name: DB_PASS
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: MONGO_PASSWORD
+        - name: DB_URI
+          valueFrom:
+            configMapKeyRef:
+              name: mongo-config
+              key: mongo-url
 ---
 apiVersion: v1
 kind: Service

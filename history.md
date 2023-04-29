@@ -16,3 +16,7 @@
 
 4. Rolling Back the Web Application
 - Easy rollback with `kubectl rollout undo deployments/app-deployment`
+
+5. Creating a Multi-Tier Application
+- Create a mongodb deployment along with config and secret.
+- Derived username, password and DB_URI from mongo secrets and config for app
